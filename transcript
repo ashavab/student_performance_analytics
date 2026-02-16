@@ -1,0 +1,919 @@
+Last login: Mon Feb 16 19:59:10 on ttys000
+ashleighboudier@Ashleighs-MacBook-Air ~ % psql postgres
+
+Password for user ashleighboudier: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "ashleighboudier"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo
+usage: sudo -h | -K | -k | -V
+usage: sudo -v [-ABkNnS] [-g group] [-h host] [-p prompt] [-u user]
+usage: sudo -l [-ABkNnS] [-g group] [-h host] [-p prompt] [-U user] [-u user]
+            [command [arg ...]]
+usage: sudo [-ABbEHkNnPS] [-C num] [-D directory] [-g group] [-h host] [-p
+            prompt] [-R directory] [-T timeout] [-u user] [VAR=value] [-i | -s]
+            [command [arg ...]]
+usage: sudo -e [-ABkNnS] [-C num] [-D directory] [-g group] [-h host] [-p
+            prompt] [-R directory] [-T timeout] [-u user] file ...
+ashleighboudier@Ashleighs-MacBook-Air ~ % psql postgres
+
+Password for user ashleighboudier: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "ashleighboudier"
+ashleighboudier@Ashleighs-MacBook-Air ~ % psql -U postgres
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+Password:
+could not identify current directory: Permission denied
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+could not identify current directory: Permission denied
+psql: fatal: could not find own program executable
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+could not identify current directory: Permission denied
+psql: fatal: could not find own program executable
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo -u postgres psql
+could not identify current directory: Permission denied
+Password for user postgres: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % brew services stop postgresql
+Stopping `postgresql@14`... (might take a while)
+==> Successfully stopped `postgresql@14` (label: homebrew.mxcl.postgresql@14)
+ashleighboudier@Ashleighs-MacBook-Air ~ % rm -rf /usr/local/var/postgres
+initdb /usr/local/var/postgres
+
+The files belonging to this database system will be owned by user "ashleighboudier".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_GB.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+creating directory /usr/local/var/postgres ... initdb: error: could not create directory "/usr/local/var": Permission denied
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo rm -rf /usr/local/var/postgres
+initdb /usr/local/var/postgres
+
+Password:
+The files belonging to this database system will be owned by user "ashleighboudier".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_GB.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+creating directory /usr/local/var/postgres ... initdb: error: could not create directory "/usr/local/var": Permission denied
+ashleighboudier@Ashleighs-MacBook-Air ~ % mkdir -p ~/postgres_data
+ashleighboudier@Ashleighs-MacBook-Air ~ % initdb ~/postgres_data
+The files belonging to this database system will be owned by user "ashleighboudier".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_GB.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /Users/ashleighboudier/postgres_data ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Europe/London
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+initdb: warning: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /Users/ashleighboudier/postgres_data -l logfile start
+
+ashleighboudier@Ashleighs-MacBook-Air ~ % pg_ctl -D /Users/ashleighboudier/postgres_data -l logfile start
+waiting for server to start.... stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+ashleighboudier@Ashleighs-MacBook-Air ~ % ps aux | grep postgres
+postgres         77375   0.0  0.0 411378288   1264   ??  Ss    7:58p.m.   0:00.00 postgres: logical replication launcher   
+postgres         77374   0.0  0.0 411387504   1376   ??  Ss    7:58p.m.   0:00.02 postgres: autovacuum launcher   
+postgres         77373   0.0  0.0 411252336    688   ??  Ss    7:58p.m.   0:00.01 postgres: walwriter   
+postgres         77371   0.0  0.0 411385456    736   ??  Ss    7:58p.m.   0:00.03 postgres: background writer   
+postgres         77370   0.0  0.0 411246192    528   ??  Ss    7:58p.m.   0:00.01 postgres: checkpointer   
+postgres         77369   0.0  0.0 411244144    480   ??  Ss    7:58p.m.   0:00.00 postgres: io worker 2  
+postgres         77368   0.0  0.0 411376240    512   ??  Ss    7:58p.m.   0:00.00 postgres: io worker 1  
+postgres         77367   0.0  0.0 411385456    512   ??  Ss    7:58p.m.   0:00.00 postgres: io worker 0  
+postgres         77365   0.0  0.0 411082560    384   ??  Ss    7:58p.m.   0:00.01 postgres: logger   
+postgres         77256   0.0  0.0 411244480   1568   ??  Ss    7:58p.m.   0:00.15 /Library/PostgreSQL/18/bin/postgres -D /Library/PostgreSQL/18/data
+postgres         77082   0.0  0.0 426916640   1776   ??  S     7:56p.m.   0:00.09 /usr/sbin/distnoted agent
+ashleighboudier  81595   0.0  0.0 410741808   1616 s000  S+    8:18p.m.   0:00.00 grep postgres
+ashleighboudier@Ashleighs-MacBook-Air ~ % psql -d postgres
+Password for user ashleighboudier: 
+psql: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  password authentication failed for user "ashleighboudier"
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo /Library/PostgreSQL/18/stop_postgres.app
+
+sudo: /Library/PostgreSQL/18/stop_postgres.app: command not found
+ashleighboudier@Ashleighs-MacBook-Air ~ % ps aux | grep postgres
+
+postgres         77375   0.0  0.0 411378288   1872   ??  Ss    7:58p.m.   0:00.01 postgres: logical replication launcher   
+postgres         77374   0.0  0.0 411387504   2176   ??  Ss    7:58p.m.   0:00.02 postgres: autovacuum launcher   
+postgres         77373   0.0  0.0 411252336    688   ??  Ss    7:58p.m.   0:00.02 postgres: walwriter   
+postgres         77371   0.0  0.0 411385456    576   ??  Ss    7:58p.m.   0:00.03 postgres: background writer   
+postgres         77370   0.0  0.0 411246192    624   ??  Ss    7:58p.m.   0:00.01 postgres: checkpointer   
+postgres         77369   0.0  0.0 411244144    480   ??  Ss    7:58p.m.   0:00.00 postgres: io worker 2  
+postgres         77368   0.0  0.0 411376240    512   ??  Ss    7:58p.m.   0:00.00 postgres: io worker 1  
+postgres         77367   0.0  0.0 411385456    512   ??  Ss    7:58p.m.   0:00.00 postgres: io worker 0  
+postgres         77365   0.0  0.0 411082560    416   ??  Ss    7:58p.m.   0:00.01 postgres: logger   
+postgres         77256   0.0  0.0 411244480   1968   ??  Ss    7:58p.m.   0:00.16 /Library/PostgreSQL/18/bin/postgres -D /Library/PostgreSQL/18/data
+postgres         77082   0.0  0.0 426916640   1728   ??  S     7:56p.m.   0:00.10 /usr/sbin/distnoted agent
+ashleighboudier  81630   0.0  0.0 410733616   1584 s000  S+    8:19p.m.   0:00.01 grep postgres
+ashleighboudier@Ashleighs-MacBook-Air ~ % launchctl list | grep postgres
+
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo launchctl unload /Library/LaunchDaemons/com.edb.postgresql-18.plist
+
+Unload failed: 5: Input/output error
+Try running `launchctl bootout` as root for richer errors.
+ashleighboudier@Ashleighs-MacBook-Air ~ % ps aux | grep /Library/PostgreSQL/18/bin/postgres
+postgres         77256   0.0  0.0 411244480   1616   ??  Ss    7:58p.m.   0:00.16 /Library/PostgreSQL/18/bin/postgres -D /Library/PostgreSQL/18/data
+ashleighboudier  81641   0.0  0.0 410733616   1600 s000  S+    8:20p.m.   0:00.00 grep /Library/PostgreSQL/18/bin/postgres
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo kill 77256
+ashleighboudier@Ashleighs-MacBook-Air ~ % sudo pkill -f "/Library/PostgreSQL/18/bin/postgres"
+ashleighboudier@Ashleighs-MacBook-Air ~ % ps aux | grep postgres
+postgres         77082   0.0  0.0 426916640   1792   ??  S     7:56p.m.   0:00.10 /usr/sbin/distnoted agent
+ashleighboudier  81651   0.0  0.0 410742832   1728 s000  S+    8:21p.m.   0:00.01 grep postgres
+ashleighboudier@Ashleighs-MacBook-Air ~ % mkdir -p ~/postgres_data                      
+initdb ~/postgres_data
+The files belonging to this database system will be owned by user "ashleighboudier".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_GB.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+initdb: error: directory "/Users/ashleighboudier/postgres_data" exists but is not empty
+If you want to create a new database system, either remove or empty
+the directory "/Users/ashleighboudier/postgres_data" or run initdb
+with an argument other than "/Users/ashleighboudier/postgres_data".
+ashleighboudier@Ashleighs-MacBook-Air ~ % rm -rf ~/postgres_data
+
+ashleighboudier@Ashleighs-MacBook-Air ~ % mkdir -p ~/postgres_data
+
+ashleighboudier@Ashleighs-MacBook-Air ~ % initdb ~/postgres_data
+
+The files belonging to this database system will be owned by user "ashleighboudier".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_GB.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /Users/ashleighboudier/postgres_data ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting default time zone ... Europe/London
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+initdb: warning: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /Users/ashleighboudier/postgres_data -l logfile start
+
+ashleighboudier@Ashleighs-MacBook-Air ~ % pg_ctl -D ~/postgres_data -l ~/postgres_data/logfile start
+
+waiting for server to start.... done
+server started
+ashleighboudier@Ashleighs-MacBook-Air ~ % ps aux | grep postgres
+
+postgres         77082   0.0  0.0 426916640   1792   ??  S     7:56p.m.   0:00.10 /usr/sbin/distnoted agent
+ashleighboudier  81727   0.0  0.0 410584032    800 s000  R+    8:22p.m.   0:00.00 grep postgres
+ashleighboudier  81721   0.0  0.0 411211856   3280   ??  Ss    8:22p.m.   0:00.00 postgres: logical replication launcher   
+ashleighboudier  81720   0.0  0.0 411066448   1968   ??  Ss    8:22p.m.   0:00.00 postgres: stats collector   
+ashleighboudier  81719   0.0  0.0 411351120   3664   ??  Ss    8:22p.m.   0:00.00 postgres: autovacuum launcher   
+ashleighboudier  81718   0.0  0.0 411342928   2768   ??  Ss    8:22p.m.   0:00.00 postgres: walwriter   
+ashleighboudier  81717   0.0  0.0 411211856   2864   ??  Ss    8:22p.m.   0:00.00 postgres: background writer   
+ashleighboudier  81716   0.0  0.0 411211856   1824   ??  Ss    8:22p.m.   0:00.00 postgres: checkpointer   
+ashleighboudier  81714   0.0  0.1 411212192   8704   ??  Ss    8:22p.m.   0:00.03 /opt/homebrew/Cellar/postgresql@14/14.21/bin/postgres -D /Users/ashleighboudier/postgres_data
+ashleighboudier@Ashleighs-MacBook-Air ~ % psql -U $(whoami) -d postgres
+
+psql (14.21 (Homebrew))
+Type "help" for help.
+
+postgres=# CREATE USER ashleigh WITH PASSWORD '';
+CREATE DATABASE school_analytics OWNER ashleigh;
+GRANT ALL PRIVILEGES ON DATABASE school_analytics TO ashleigh;
+CREATE ROLE
+CREATE DATABASE
+GRANT
+postgres=# psql -U ashleigh -d school_analytics
+postgres-# CREATE TABLE dim_student (
+    student_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    gender CHAR(1),
+    year_group VARCHAR(10),
+    enrollment_date DATE,
+    nationality VARCHAR(30),
+    SEN_flag BOOLEAN,
+    EAL_flag BOOLEAN
+);
+ERROR:  syntax error at or near "psql"
+LINE 1: psql -U ashleigh -d school_analytics
+        ^
+postgres=# psql -U ashleigh -d school_analytics
+postgres-# school_analytics=#
+postgres-# psql -U ashleigh -d school_analytics
+zsh: quit       psql -U $(whoami) -d postgres
+ashleighboudier@Ashleighs-MacBook-Air ~ % psql -U ashleigh -d school_analytics
+
+psql (14.21 (Homebrew))
+Type "help" for help.
+
+school_analytics=> CREATE TABLE dim_student (
+    student_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    gender CHAR(1),
+    year_group VARCHAR(10),
+    enrollment_date DATE,
+    nationality VARCHAR(30),
+    SEN_flag BOOLEAN,
+    EAL_flag BOOLEAN
+);
+CREATE TABLE
+school_analytics=> -- Teacher dimension
+CREATE TABLE dim_teacher (
+    teacher_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    hire_date DATE
+);
+
+-- Subject dimension
+CREATE TABLE dim_subject (
+    subject_id SERIAL PRIMARY KEY,
+    subject_name VARCHAR(50),
+    subject_category VARCHAR(20)  -- Core / Foundation
+);
+
+-- Date dimension
+CREATE TABLE dim_date (
+    date_id SERIAL PRIMARY KEY,
+    full_date DATE,
+    day INT,
+    month INT,
+    month_name VARCHAR(20),
+    term INT,
+    academic_year VARCHAR(10),
+    week_number INT,
+    is_weekend BOOLEAN
+);
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+school_analytics=> 
+school_analytics=> -- Attendance fact table
+CREATE TABLE fact_attendance (
+    attendance_id SERIAL PRIMARY KEY,
+    student_id INT REFERENCES dim_student(student_id),
+    date_id INT REFERENCES dim_date(date_id),
+    attendance_status VARCHAR(20),  -- Present / Absent / Late
+    minutes_late INT
+);
+
+-- Grades fact table
+CREATE TABLE fact_grades (
+    grade_id SERIAL PRIMARY KEY,
+    student_id INT REFERENCES dim_student(student_id),
+    teacher_id INT REFERENCES dim_teacher(teacher_id),
+    subject_id INT REFERENCES dim_subject(subject_id),
+    date_id INT REFERENCES dim_date(date_id),
+    score DECIMAL(5,2),
+    max_score DECIMAL(5,2)
+);
+CREATE TABLE
+CREATE TABLE
+school_analytics=> INSERT INTO dim_student (first_name, last_name, gender, year_group, enrollment_date, nationality, SEN_flag, EAL_flag) VALUES
+('Napat','Srisuk','M','Year 1','2025-08-15','Thai',FALSE,FALSE),  -- Nickname: Pond
+('Kanya','Chaiyawan','F','Year 1','2025-08-16','Thai',FALSE,FALSE), -- Nickname: Koy
+('Anucha','Rattanaporn','M','Year 1','2025-08-17','Thai',FALSE,FALSE), -- Nickname: Nut
+('Phichaya','Somsri','F','Year 1','2025-08-18','Thai',TRUE,FALSE), -- Nickname: Fah
+('Thanawat','Prasert','M','Year 1','2025-08-19','Thai',FALSE,TRUE), -- Nickname: Bank
+('Sirin','Jantawong','F','Year 1','2025-08-20','Thai',FALSE,FALSE), -- Nickname: Bee
+('Chaiwat','Kittipong','M','Year 1','2025-08-21','Thai',FALSE,FALSE), -- Nickname: Cha
+('Pimchanok','Chareon','F','Year 1','2025-08-22','Thai',FALSE,FALSE), -- Nickname: Pim
+('Natthaphon','Sukhum','M','Year 1','2025-08-23','Thai',TRUE,FALSE), -- Nickname: Beam
+('Chutima','Thongchai','F','Year 1','2025-08-24','Thai',FALSE,TRUE), -- Nickname: Tip
+('Supachai','Niran','M','Year 2','2024-08-15','Thai',FALSE,FALSE), -- Nickname: Champ
+('Pornsawan','Uthai','F','Year 2','2024-08-16','Thai',FALSE,FALSE), -- Nickname: Sai
+('Worawit','Kongka','M','Year 2','2024-08-17','Thai',FALSE,FALSE), -- Nickname: Oak
+('Chanikan','Boonmee','F','Year 2','2024-08-18','Thai',TRUE,FALSE), -- Nickname: Nan
+('Tawatchai','Rung','M','Year 2','2024-08-19','Thai',FALSE,FALSE), -- Nickname: Taw
+('Sasima','Inthanon','F','Year 2','2024-08-20','Thai',FALSE,TRUE), -- Nickname: Sa
+('Kritsada','Phromma','M','Year 2','2024-08-21','Thai',FALSE,FALSE), -- Nickname: Krit
+('Natthamon','Rojanakul','F','Year 2','2024-08-22','Thai',FALSE,FALSE), -- Nickname: Mon
+('Chinnapat','Suwannarat','M','Year 2','2024-08-23','Thai',FALSE,FALSE), -- Nickname: Chin
+('Pimlada','Sricharoen','F','Year 2','2024-08-24','Thai',FALSE,TRUE); -- Nickname: Pimmy
+INSERT 0 20
+school_analytics=> ALTER TABLE dim_student ADD COLUMN nickname VARCHAR(20);
+
+UPDATE dim_student SET nickname = 'Pond' WHERE first_name='Napat';
+-- Repeat for others
+ALTER TABLE
+UPDATE 1
+school_analytics=> -- Add nickname column
+ALTER TABLE dim_student ADD COLUMN nickname VARCHAR(20);
+
+-- Insert 20 Thai students (Year 1 & Year 2) with nicknames
+INSERT INTO dim_student (first_name, last_name, nickname, gender, year_group, enrollment_date, nationality, SEN_flag, EAL_flag) VALUES
+('Napat','Srisuk','Pond','M','Year 1','2016-09-10','Thai',FALSE,FALSE),
+('Kanya','Chaiyawan','Koy','F','Year 1','2016-05-15','Thai',FALSE,FALSE),
+('Anucha','Rattanaporn','Nut','M','Year 1','2016-11-20','Thai',FALSE,FALSE),
+('Phichaya','Somsri','Fah','F','Year 1','2016-03-30','Thai',TRUE,FALSE),
+('Thanawat','Prasert','Bank','M','Year 1','2016-07-12','Thai',FALSE,TRUE),
+('Sirin','Jantawong','Bee','F','Year 1','2016-12-05','Thai',FALSE,FALSE),
+('Chaiwat','Kittipong','Cha','M','Year 1','2016-01-18','Thai',FALSE,FALSE),
+('Pimchanok','Chareon','Pim','F','Year 1','2016-09-22','Thai',FALSE,FALSE),
+('Natthaphon','Sukhum','Beam','M','Year 1','2016-06-11','Thai',TRUE,FALSE),
+('Chutima','Thongchai','Tip','F','Year 1','2016-04-25','Thai',FALSE,TRUE),
+('Supachai','Niran','Champ','M','Year 2','2017-08-15','Thai',FALSE,FALSE),
+('Pornsawan','Uthai','Sai','F','Year 2','2017-05-10','Thai',FALSE,FALSE),
+('Worawit','Kongka','Oak','M','Year 2','2017-12-20','Thai',FALSE,FALSE),
+('Chanikan','Boonmee','Nan','F','Year 2','2017-03-30','Thai',TRUE,FALSE),
+('Tawatchai','Rung','Taw','M','Year 2','2017-07-12','Thai',FALSE,FALSE),
+('Sasima','Inthanon','Sa','F','Year 2','2017-11-05','Thai',FALSE,TRUE),
+('Kritsada','Phromma','Krit','M','Year 2','2017-01-18','Thai',FALSE,FALSE),
+('Natthamon','Rojanakul','Mon','F','Year 2','2017-09-22','Thai',FALSE,FALSE),
+('Chinnapat','Suwannarat','Chin','M','Year 2','2017-06-11','Thai',FALSE,FALSE),
+('Pimlada','Sricharoen','Pimmy','F','Year 2','2017-04-25','Thai',FALSE,TRUE);
+ERROR:  column "nickname" of relation "dim_student" already exists
+INSERT 0 20
+school_analytics=> -- Clear previous entries (optional)
+TRUNCATE TABLE dim_teacher RESTART IDENTITY;
+
+-- Insert teachers                                         
+INSERT INTO dim_teacher (first_name, last_name, hire_date) VALUES
+('Ashleigh','Boudier','2023-06-01'),        
+('James','van der Merwe','2015-01-15'),                   
+('Samantha','Botha','2016-03-22'),                          
+('Michael','Pretorius','2017-09-10');                     
+ERROR:  cannot truncate a table referenced in a foreign key constraint
+DETAIL:  Table "fact_grades" references "dim_teacher".
+HINT:  Truncate table "fact_grades" at the same time, or use TRUNCATE ... CASCADE.
+INSERT 0 4
+school_analytics=> TRUNCATE
+school_analytics-> INSERT INTO dim_teacher (first_name, last_name, hire_date) VALUES
+('Ashleigh','Boudier','2023-06-01'),        
+('James','van der Merwe','2015-01-15'),                   
+('Samantha','Botha','2016-03-22'),                          
+('Michael','Pretorius','2017-09-10');
+ERROR:  syntax error at or near "INTO"
+LINE 2: INSERT INTO dim_teacher (first_name, last_name, hire_date) V...
+               ^
+school_analytics=> TRUNCATE TABLE dim_teacher CASCADE;
+NOTICE:  truncate cascades to table "fact_grades"
+TRUNCATE TABLE
+school_analytics=> TRUNCATE TABLE
+school_analytics-> INSERT INTO dim_teacher (first_name, last_name, hire_date) VALUES
+('Ashleigh','Boudier','2023-06-01'),
+('James','van der Merwe','2015-01-15'),
+('Samantha','Botha','2016-03-22'),
+('Michael','Pretorius','2017-09-10');
+ERROR:  syntax error at or near "INTO"
+LINE 2: INSERT INTO dim_teacher (first_name, last_name, hire_date) V...
+               ^
+school_analytics=> INSERT INTO dim_teacher (first_name, last_name, hire_date) VALUES ('Ashleigh','Boudier','2023-06-01'),('James','van der Merwe','2015-01-15'),('Samantha','Botha','2016-03-22'),('Michael','Pretorius','2017-09-10');
+INSERT 0 4
+school_analytics=> TRUNCATE TABLE fact_grades, fact_attendance, dim_teacher, dim_student, dim_subject, dim_date CASCADE;
+TRUNCATE TABLE
+school_analytics=> INSERT INTO dim_teacher (first_name, last_name, hire_date) VALUES
+('Ashleigh','Boudier','2023-06-01'),
+('James','van der Merwe','2015-01-15'),
+('Samantha','Botha','2016-03-22'),
+('Michael','Pretorius','2017-09-10');
+INSERT 0 4
+school_analytics=> INSERT INTO dim_subject (subject_name, subject_category) VALUES
+('Mathematics','Core'),
+('English','Core'),
+('Science','Core'),
+('Art','Foundation');
+INSERT 0 4
+school_analytics=> ALTER TABLE dim_student ADD COLUMN IF NOT EXISTS nickname VARCHAR(20);
+
+INSERT INTO dim_student (first_name, last_name, nickname, gender, year_group, enrollment_date, nationality, SEN_flag, EAL_flag) VALUES
+('Napat','Srisuk','Pond','M','Year 1','2016-09-10','Thai',FALSE,FALSE),
+('Kanya','Chaiyawan','Koy','F','Year 1','2016-05-15','Thai',FALSE,FALSE),
+('Anucha','Rattanaporn','Nut','M','Year 1','2016-11-20','Thai',FALSE,FALSE),
+('Phichaya','Somsri','Fah','F','Year 1','2016-03-30','Thai',TRUE,FALSE),
+('Thanawat','Prasert','Bank','M','Year 1','2016-07-12','Thai',FALSE,TRUE),
+('Sirin','Jantawong','Bee','F','Year 1','2016-12-05','Thai',FALSE,FALSE),
+('Chaiwat','Kittipong','Cha','M','Year 1','2016-01-18','Thai',FALSE,FALSE),
+('Pimchanok','Chareon','Pim','F','Year 1','2016-09-22','Thai',FALSE,FALSE),
+('Natthaphon','Sukhum','Beam','M','Year 1','2016-06-11','Thai',TRUE,FALSE),
+('Chutima','Thongchai','Tip','F','Year 1','2016-04-25','Thai',FALSE,TRUE),
+('Supachai','Niran','Champ','M','Year 2','2017-08-15','Thai',FALSE,FALSE),
+('Pornsawan','Uthai','Sai','F','Year 2','2017-05-10','Thai',FALSE,FALSE),
+('Worawit','Kongka','Oak','M','Year 2','2017-12-20','Thai',FALSE,FALSE),
+('Chanikan','Boonmee','Nan','F','Year 2','2017-03-30','Thai',TRUE,FALSE),
+('Tawatchai','Rung','Taw','M','Year 2','2017-07-12','Thai',FALSE,FALSE),
+('Sasima','Inthanon','Sa','F','Year 2','2017-11-05','Thai',FALSE,TRUE),
+('Kritsada','Phromma','Krit','M','Year 2','2017-01-18','Thai',FALSE,FALSE),
+('Natthamon','Rojanakul','Mon','F','Year 2','2017-09-22','Thai',FALSE,FALSE),
+('Chinnapat','Suwannarat','Chin','M','Year 2','2017-06-11','Thai',FALSE,FALSE),
+('Pimlada','Sricharoen','Pimmy','F','Year 2','2017-04-25','Thai',FALSE,TRUE);
+NOTICE:  column "nickname" of relation "dim_student" already exists, skipping
+ALTER TABLE
+INSERT 0 20
+school_analytics=> INSERT INTO dim_date (full_date, day, month, month_name, term, academic_year, week_number, is_weekend) VALUES
+('2026-02-16',16,2,'February',2,'2025-2026',7,FALSE),
+('2026-02-17',17,2,'February',2,'2025-2026',7,FALSE),
+('2026-02-18',18,2,'February',2,'2025-2026',7,FALSE),
+('2026-02-19',19,2,'February',2,'2025-2026',7,FALSE),
+('2026-02-20',20,2,'February',2,'2025-2026',7,FALSE);
+INSERT 0 5
+school_analytics=> INSERT INTO dim_date (full_date, day, month, month_name, term, academic_year, week_number, is_weekend) VALUES
+('2025-02-16',16,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-17',17,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-18',18,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-19',19,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-20',20,2,'February',2,'2024-2025',7,FALSE);
+INSERT 0 5
+school_analytics=> -- Update attendance dates to 2024–25
+UPDATE fact_attendance fa
+SET date_id = dd.date_id
+FROM dim_date dd
+WHERE fa.date_id = dd.date_id;  -- IDs match, so no change needed
+
+-- Update grades dates similarly (if needed)
+UPDATE fact_grades fg
+SET date_id = dd.date_id
+FROM dim_date dd
+WHERE fg.date_id = dd.date_id;
+UPDATE 0
+UPDATE 0
+school_analytics=> -- % of days each student was present
+SELECT 
+    s.student_id,
+    s.first_name || ' ' || s.last_name AS student_name,
+    s.year_group,
+    COUNT(*) FILTER (WHERE fa.attendance_status = 'Present')::decimal / COUNT(*) * 100 AS attendance_percentage
+FROM fact_attendance fa
+JOIN dim_student s ON fa.student_id = s.student_id
+GROUP BY s.student_id, s.first_name, s.last_name, s.year_group
+ORDER BY attendance_percentage DESC;
+ student_id | student_name | year_group | attendance_percentage 
+------------+--------------+------------+-----------------------
+(0 rows)
+
+school_analytics=> -- Average score for each subject across all students
+SELECT 
+    sub.subject_name,
+    ROUND(AVG(fg.score)::numeric,2) AS average_score,
+    AVG(fg.score)::numeric / AVG(fg.max_score)::numeric * 100 AS average_percentage
+FROM fact_grades fg
+JOIN dim_subject sub ON fg.subject_id = sub.subject_id
+GROUP BY sub.subject_name
+ORDER BY average_score DESC;
+ subject_name | average_score | average_percentage 
+--------------+---------------+--------------------
+(0 rows)
+
+school_analytics=> -- Average grade per year group
+SELECT 
+    s.year_group,
+    ROUND(AVG(fg.score)::numeric,2) AS avg_score
+FROM fact_grades fg
+JOIN dim_student s ON fg.student_id = s.student_id
+GROUP BY s.year_group
+ORDER BY s.year_group;
+ year_group | avg_score 
+------------+-----------
+(0 rows)
+
+school_analytics=> -- Students with attendance below 80%
+SELECT 
+    s.student_id,
+    s.first_name || ' ' || s.last_name AS student_name,
+    ROUND(COUNT(*) FILTER (WHERE fa.attendance_status = 'Present')::decimal / COUNT(*) * 100, 2) AS attendance_percentage
+FROM fact_attendance fa
+JOIN dim_student s ON fa.student_id = s.student_id
+GROUP BY s.student_id, s.first_name, s.last_name
+HAVING (COUNT(*) FILTER (WHERE fa.attendance_status = 'Present')::decimal / COUNT(*) * 100) < 80
+ORDER BY attendance_percentage ASC;
+ student_id | student_name | attendance_percentage 
+------------+--------------+-----------------------
+(0 rows)
+
+school_analytics=> -- Students with average score below 60%
+SELECT 
+    s.student_id,
+    s.first_name || ' ' || s.last_name AS student_name,
+    ROUND(AVG(fg.score)::numeric,2) AS avg_score,
+    ROUND(AVG(fg.score)::numeric / AVG(fg.max_score)::numeric * 100, 2) AS avg_percentage
+FROM fact_grades fg
+JOIN dim_student s ON fg.student_id = s.student_id
+GROUP BY s.student_id, s.first_name, s.last_name
+HAVING AVG(fg.score)::decimal / AVG(fg.max_score)::decimal * 100 < 60
+ORDER BY avg_percentage ASC;
+ student_id | student_name | avg_score | avg_percentage 
+------------+--------------+-----------+----------------
+(0 rows)
+
+school_analytics=> -- Total minutes late per student
+SELECT 
+    s.student_id,
+    s.first_name || ' ' || s.last_name AS student_name,
+    SUM(fa.minutes_late) AS total_minutes_late,
+    COUNT(*) FILTER (WHERE fa.minutes_late > 0) AS days_late
+FROM fact_attendance fa
+JOIN dim_student s ON fa.student_id = s.student_id
+GROUP BY s.student_id, s.first_name, s.last_name
+ORDER BY total_minutes_late DESC;
+ student_id | student_name | total_minutes_late | days_late 
+------------+--------------+--------------------+-----------
+(0 rows)
+
+school_analytics=> SELECT 
+    s.student_id,
+    s.first_name || ' ' || s.last_name AS student_name,
+    s.year_group,
+    COUNT(*) FILTER (WHERE fa.attendance_status = 'Present')::decimal / COUNT(*) * 100 AS attendance_percentage
+FROM fact_attendance fa
+JOIN dim_student s ON fa.student_id = s.student_id
+GROUP BY s.student_id, s.first_name, s.last_name, s.year_group
+ORDER BY attendance_percentage DESC;
+ student_id | student_name | year_group | attendance_percentage 
+------------+--------------+------------+-----------------------
+(0 rows)
+
+school_analytics=> SELECT * FROM fact_attendance LIMIT 10;
+ attendance_id | student_id | date_id | attendance_status | minutes_late 
+---------------+------------+---------+-------------------+--------------
+(0 rows)
+
+school_analytics=> SELECT student_id, first_name, last_name FROM dim_student ORDER BY student_id;
+ student_id | first_name |  last_name  
+------------+------------+-------------
+         41 | Napat      | Srisuk
+         42 | Kanya      | Chaiyawan
+         43 | Anucha     | Rattanaporn
+         44 | Phichaya   | Somsri
+         45 | Thanawat   | Prasert
+         46 | Sirin      | Jantawong
+         47 | Chaiwat    | Kittipong
+         48 | Pimchanok  | Chareon
+         49 | Natthaphon | Sukhum
+         50 | Chutima    | Thongchai
+         51 | Supachai   | Niran
+         52 | Pornsawan  | Uthai
+         53 | Worawit    | Kongka
+         54 | Chanikan   | Boonmee
+         55 | Tawatchai  | Rung
+         56 | Sasima     | Inthanon
+         57 | Kritsada   | Phromma
+         58 | Natthamon  | Rojanakul
+         59 | Chinnapat  | Suwannarat
+         60 | Pimlada    | Sricharoen
+(20 rows)
+
+school_analytics=> SELECT date_id, full_date FROM dim_date ORDER BY date_id;
+ date_id | full_date  
+---------+------------
+       1 | 2026-02-16
+       2 | 2026-02-17
+       3 | 2026-02-18
+       4 | 2026-02-19
+       5 | 2026-02-20
+       6 | 2025-02-16
+       7 | 2025-02-17
+       8 | 2025-02-18
+       9 | 2025-02-19
+      10 | 2025-02-20
+(10 rows)
+
+school_analytics=> DELETE FROM dim_date
+WHERE full_date >= '2025-01-01';
+DELETE 10
+school_analytics=> INSERT INTO dim_date (full_date, day, month, month_name, term, academic_year, week_number, is_weekend) VALUES
+('2025-02-16',16,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-17',17,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-18',18,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-19',19,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-20',20,2,'February',2,'2024-2025',7,FALSE);
+INSERT 0 5
+school_analytics=> INSERT INTO fact_attendance (student_id, date_id, attendance_status, minutes_late) VALUES
+-- Day 1
+(1,1,'Present',0),(2,1,'Absent',0),(3,1,'Present',5),(4,1,'Present',0),(5,1,'Present',0),
+(6,1,'Late',10),(7,1,'Present',0),(8,1,'Present',0),(9,1,'Absent',0),(10,1,'Present',0),
+(11,1,'Present',0),(12,1,'Present',0),(13,1,'Present',0),(14,1,'Absent',0),(15,1,'Present',0),
+(16,1,'Present',0),(17,1,'Late',5),(18,1,'Present',0),(19,1,'Present',0),(20,1,'Present',0),
+
+-- Day 2
+(1,2,'Present',0),(2,2,'Present',0),(3,2,'Late',3),(4,2,'Present',0),(5,2,'Absent',0),
+(6,2,'Present',0),(7,2,'Present',0),(8,2,'Late',2),(9,2,'Present',0),(10,2,'Present',0),
+(11,2,'Absent',0),(12,2,'Present',0),(13,2,'Present',0),(14,2,'Present',0),(15,2,'Late',5),
+(16,2,'Present',0),(17,2,'Present',0),(18,2,'Present',0),(19,2,'Present',0),(20,2,'Present',0),
+
+-- Day 3
+(1,3,'Present',0),(2,3,'Present',0),(3,3,'Present',0),(4,3,'Present',0),(5,3,'Present',0),
+(6,3,'Late',5),(7,3,'Present',0),(8,3,'Present',0),(9,3,'Present',0),(10,3,'Absent',0),
+(11,3,'Present',0),(12,3,'Present',0),(13,3,'Late',3),(14,3,'Present',0),(15,3,'Present',0),
+(16,3,'Present',0),(17,3,'Present',0),(18,3,'Late',2),(19,3,'Present',0),(20,3,'Present',0),
+
+-- Day 4
+(1,4,'Present',0),(2,4,'Late',2),(3,4,'Present',0),(4,4,'Absent',0),(5,4,'Present',0),
+(6,4,'Present',0),(7,4,'Present',0),(8,4,'Present',0),(9,4,'Present',0),(10,4,'Present',0),
+(11,4,'Present',0),(12,4,'Present',0),(13,4,'Present',0),(14,4,'Present',0),(15,4,'Late',3),
+(16,4,'Present',0),(17,4,'Present',0),(18,4,'Present',0),(19,4,'Present',0),(20,4,'Present',0),
+
+-- Day 5
+(1,5,'Absent',0),(2,5,'Present',0),(3,5,'Present',0),(4,5,'Present',0),(5,5,'Present',0),
+(6,5,'Present',0),(7,5,'Late',5),(8,5,'Present',0),(9,5,'Present',0),(10,5,'Present',0),
+(11,5,'Present',0),(12,5,'Late',2),(13,5,'Present',0),(14,5,'Present',0),(15,5,'Present',0),
+(16,5,'Present',0),(17,5,'Present',0),(18,5,'Present',0),(19,5,'Late',3),(20,5,'Present',0);
+ERROR:  insert or update on table "fact_attendance" violates foreign key constraint "fact_attendance_student_id_fkey"
+DETAIL:  Key (student_id)=(1) is not present in table "dim_student".
+school_analytics=> SELECT student_id, first_name, last_name FROM dim_student ORDER BY student_id;
+ student_id | first_name |  last_name  
+------------+------------+-------------
+         41 | Napat      | Srisuk
+         42 | Kanya      | Chaiyawan
+         43 | Anucha     | Rattanaporn
+         44 | Phichaya   | Somsri
+         45 | Thanawat   | Prasert
+         46 | Sirin      | Jantawong
+         47 | Chaiwat    | Kittipong
+         48 | Pimchanok  | Chareon
+         49 | Natthaphon | Sukhum
+         50 | Chutima    | Thongchai
+         51 | Supachai   | Niran
+         52 | Pornsawan  | Uthai
+         53 | Worawit    | Kongka
+         54 | Chanikan   | Boonmee
+         55 | Tawatchai  | Rung
+         56 | Sasima     | Inthanon
+         57 | Kritsada   | Phromma
+         58 | Natthamon  | Rojanakul
+         59 | Chinnapat  | Suwannarat
+         60 | Pimlada    | Sricharoen
+(20 rows)
+
+school_analytics=> INSERT INTO fact_attendance (student_id, date_id, attendance_status, minutes_late) VALUES
+(101,1,'Present',0),(102,1,'Absent',0),(103,1,'Present',5), ...;
+ERROR:  syntax error at or near ".."
+LINE 2: ...,1,'Present',0),(102,1,'Absent',0),(103,1,'Present',5), ...;
+                                                                   ^
+school_analytics=> INSERT INTO fact_attendance (student_id, date_id, attendance_status, minutes_late) VALUES
+(41,1,'Present',0),
+(42,1,'Absent',0),
+(43,1,'Present',5),
+(44,1,'Present',0),
+(45,1,'Present',0),
+(46,1,'Late',10),
+(47,1,'Present',0),
+(48,1,'Present',0),
+(49,1,'Absent',0),
+(50,1,'Present',0),
+(51,1,'Present',0),
+(52,1,'Present',0),
+(53,1,'Present',0),
+(54,1,'Absent',0),
+(55,1,'Present',0),
+(56,1,'Present',0),
+(57,1,'Late',5),
+(58,1,'Present',0),
+(59,1,'Present',0),
+(60,1,'Present',0);
+ERROR:  insert or update on table "fact_attendance" violates foreign key constraint "fact_attendance_date_id_fkey"
+DETAIL:  Key (date_id)=(1) is not present in table "dim_date".
+school_analytics=> -- INSERT attendance for 20 students over 5 school days (date_id 1-5)
+INSERT INTO fact_attendance (student_id, date_id, attendance_status, minutes_late) VALUES
+-- Day 1 (date_id = 1)
+(41,1,'Present',0),(42,1,'Absent',0),(43,1,'Present',5),(44,1,'Present',0),(45,1,'Present',0),
+(46,1,'Late',10),(47,1,'Present',0),(48,1,'Present',0),(49,1,'Absent',0),(50,1,'Present',0),
+(51,1,'Present',0),(52,1,'Present',0),(53,1,'Present',0),(54,1,'Absent',0),(55,1,'Present',0),
+(56,1,'Present',0),(57,1,'Late',5),(58,1,'Present',0),(59,1,'Present',0),(60,1,'Present',0),
+
+-- Day 2 (date_id = 2)
+(41,2,'Present',0),(42,2,'Present',0),(43,2,'Late',3),(44,2,'Present',0),(45,2,'Absent',0),
+(46,2,'Present',0),(47,2,'Present',0),(48,2,'Late',2),(49,2,'Present',0),(50,2,'Present',0),
+(51,2,'Absent',0),(52,2,'Present',0),(53,2,'Present',0),(54,2,'Present',0),(55,2,'Late',5),
+(56,2,'Present',0),(57,2,'Present',0),(58,2,'Present',0),(59,2,'Present',0),(60,2,'Present',0),
+
+-- Day 3 (date_id = 3)
+(41,3,'Present',0),(42,3,'Present',0),(43,3,'Present',0),(44,3,'Present',0),(45,3,'Present',0),
+(46,3,'Late',5),(47,3,'Present',0),(48,3,'Present',0),(49,3,'Present',0),(50,3,'Absent',0),
+(51,3,'Present',0),(52,3,'Present',0),(53,3,'Late',3),(54,3,'Present',0),(55,3,'Present',0),
+(56,3,'Present',0),(57,3,'Present',0),(58,3,'Late',2),(59,3,'Present',0),(60,3,'Present',0),
+
+-- Day 4 (date_id = 4)
+(41,4,'Present',0),(42,4,'Late',2),(43,4,'Present',0),(44,4,'Absent',0),(45,4,'Present',0),
+(46,4,'Present',0),(47,4,'Present',0),(48,4,'Present',0),(49,4,'Present',0),(50,4,'Present',0),
+(51,4,'Present',0),(52,4,'Present',0),(53,4,'Present',0),(54,4,'Present',0),(55,4,'Late',3),
+(56,4,'Present',0),(57,4,'Present',0),(58,4,'Present',0),(59,4,'Present',0),(60,4,'Present',0),
+
+-- Day 5 (date_id = 5)
+(41,5,'Absent',0),(42,5,'Present',0),(43,5,'Present',0),(44,5,'Present',0),(45,5,'Present',0),
+(46,5,'Present',0),(47,5,'Late',5),(48,5,'Present',0),(49,5,'Present',0),(50,5,'Present',0),
+(51,5,'Present',0),(52,5,'Late',2),(53,5,'Present',0),(54,5,'Present',0),(55,5,'Present',0),
+(56,5,'Present',0),(57,5,'Present',0),(58,5,'Present',0),(59,5,'Late',3),(60,5,'Present',0);
+ERROR:  insert or update on table "fact_attendance" violates foreign key constraint "fact_attendance_date_id_fkey"
+DETAIL:  Key (date_id)=(1) is not present in table "dim_date".
+school_analytics=> SELECT date_id, full_date, academic_year FROM dim_date ORDER BY date_id;
+ date_id | full_date  | academic_year 
+---------+------------+---------------
+      11 | 2025-02-16 | 2024-2025
+      12 | 2025-02-17 | 2024-2025
+      13 | 2025-02-18 | 2024-2025
+      14 | 2025-02-19 | 2024-2025
+      15 | 2025-02-20 | 2024-2025
+(5 rows)
+
+school_analytics=> TRUNCATE TABLE dim_date RESTART IDENTITY CASCADE;
+NOTICE:  truncate cascades to table "fact_attendance"
+NOTICE:  truncate cascades to table "fact_grades"
+TRUNCATE TABLE
+school_analytics=> INSERT INTO dim_date (full_date, day, month, month_name, term, academic_year, week_number, is_weekend) VALUES
+('2025-02-16',16,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-17',17,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-18',18,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-19',19,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-20',20,2,'February',2,'2024-2025',7,FALSE);
+INSERT 0 5
+school_analytics=> -- Remove any old dates and reset IDs
+TRUNCATE TABLE dim_date RESTART IDENTITY CASCADE;
+
+-- Insert 5 school days for 2024–25
+INSERT INTO dim_date (full_date, day, month, month_name, term, academic_year, week_number, is_weekend) VALUES
+('2025-02-16',16,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-17',17,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-18',18,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-19',19,2,'February',2,'2024-2025',7,FALSE),
+('2025-02-20',20,2,'February',2,'2024-2025',7,FALSE);
+NOTICE:  truncate cascades to table "fact_attendance"
+NOTICE:  truncate cascades to table "fact_grades"
+TRUNCATE TABLE
+INSERT 0 5
+school_analytics=> -- Insert attendance for 20 students (student_id 41-60) over 5 days (date_id 1-5)
+INSERT INTO fact_attendance (student_id, date_id, attendance_status, minutes_late) VALUES
+-- Day 1
+(41,1,'Present',0),(42,1,'Absent',0),(43,1,'Present',5),(44,1,'Present',0),(45,1,'Present',0),
+(46,1,'Late',10),(47,1,'Present',0),(48,1,'Present',0),(49,1,'Absent',0),(50,1,'Present',0),
+(51,1,'Present',0),(52,1,'Present',0),(53,1,'Present',0),(54,1,'Absent',0),(55,1,'Present',0),
+(56,1,'Present',0),(57,1,'Late',5),(58,1,'Present',0),(59,1,'Present',0),(60,1,'Present',0),
+
+-- Day 2
+(41,2,'Present',0),(42,2,'Present',0),(43,2,'Late',3),(44,2,'Present',0),(45,2,'Absent',0),
+(46,2,'Present',0),(47,2,'Present',0),(48,2,'Late',2),(49,2,'Present',0),(50,2,'Present',0),
+(51,2,'Absent',0),(52,2,'Present',0),(53,2,'Present',0),(54,2,'Present',0),(55,2,'Late',5),
+(56,2,'Present',0),(57,2,'Present',0),(58,2,'Present',0),(59,2,'Present',0),(60,2,'Present',0),
+
+-- Day 3
+(41,3,'Present',0),(42,3,'Present',0),(43,3,'Present',0),(44,3,'Present',0),(45,3,'Present',0),
+(46,3,'Late',5),(47,3,'Present',0),(48,3,'Present',0),(49,3,'Present',0),(50,3,'Absent',0),
+(51,3,'Present',0),(52,3,'Present',0),(53,3,'Late',3),(54,3,'Present',0),(55,3,'Present',0),
+(56,3,'Present',0),(57,3,'Present',0),(58,3,'Late',2),(59,3,'Present',0),(60,3,'Present',0),
+
+-- Day 4
+(41,4,'Present',0),(42,4,'Late',2),(43,4,'Present',0),(44,4,'Absent',0),(45,4,'Present',0),
+(46,4,'Present',0),(47,4,'Present',0),(48,4,'Present',0),(49,4,'Present',0),(50,4,'Present',0),
+(51,4,'Present',0),(52,4,'Present',0),(53,4,'Present',0),(54,4,'Present',0),(55,4,'Late',3),
+(56,4,'Present',0),(57,4,'Present',0),(58,4,'Present',0),(59,4,'Present',0),(60,4,'Present',0),
+
+-- Day 5
+(41,5,'Absent',0),(42,5,'Present',0),(43,5,'Present',0),(44,5,'Present',0),(45,5,'Present',0),
+(46,5,'Present',0),(47,5,'Late',5),(48,5,'Present',0),(49,5,'Present',0),(50,5,'Present',0),
+(51,5,'Present',0),(52,5,'Late',2),(53,5,'Present',0),(54,5,'Present',0),(55,5,'Present',0),
+(56,5,'Present',0),(57,5,'Present',0),(58,5,'Present',0),(59,5,'Late',3),(60,5,'Present',0);
+INSERT 0 100
+school_analytics=> SELECT 
+    s.student_id,
+    s.first_name || ' ' || s.last_name AS student_name,
+    s.year_group,
+    COUNT(*) FILTER (WHERE fa.attendance_status = 'Present')::decimal / COUNT(*) * 100 AS attendance_percentage
+FROM fact_attendance fa
+JOIN dim_student s ON fa.student_id = s.student_id
+GROUP BY s.student_id, s.first_name, s.last_name, s.year_group
+ORDER BY attendance_percentage DESC;
+ student_id |     student_name     | year_group |  attendance_percentage   
+------------+----------------------+------------+--------------------------
+         60 | Pimlada Sricharoen   | Year 2     | 100.00000000000000000000
+         56 | Sasima Inthanon      | Year 2     | 100.00000000000000000000
+         51 | Supachai Niran       | Year 2     |  80.00000000000000000000
+         50 | Chutima Thongchai    | Year 1     |  80.00000000000000000000
+         41 | Napat Srisuk         | Year 1     |  80.00000000000000000000
+         49 | Natthaphon Sukhum    | Year 1     |  80.00000000000000000000
+         47 | Chaiwat Kittipong    | Year 1     |  80.00000000000000000000
+         52 | Pornsawan Uthai      | Year 2     |  80.00000000000000000000
+         43 | Anucha Rattanaporn   | Year 1     |  80.00000000000000000000
+         53 | Worawit Kongka       | Year 2     |  80.00000000000000000000
+         59 | Chinnapat Suwannarat | Year 2     |  80.00000000000000000000
+         45 | Thanawat Prasert     | Year 1     |  80.00000000000000000000
+         44 | Phichaya Somsri      | Year 1     |  80.00000000000000000000
+         54 | Chanikan Boonmee     | Year 2     |  80.00000000000000000000
+         48 | Pimchanok Chareon    | Year 1     |  80.00000000000000000000
+         58 | Natthamon Rojanakul  | Year 2     |  80.00000000000000000000
+         57 | Kritsada Phromma     | Year 2     |  80.00000000000000000000
+         55 | Tawatchai Rung       | Year 2     |  60.00000000000000000000
+         42 | Kanya Chaiyawan      | Year 1     |  60.00000000000000000000
+         46 | Sirin Jantawong      | Year 1     |  60.00000000000000000000
+(20 rows)
+
+school_analytics=> TRUNCATE TABLE dim_date RESTART IDENTITY CASCADE;
+
+-- Term 1 (example: 2024-09-01 to 2024-12-20)
+INSERT INTO dim_date (full_date, day, month, month_name, term, academic_year, week_number, is_weekend)
+SELECT date_trunc('day', d)::date,
+       EXTRACT(DAY FROM d),
+       EXTRACT(MONTH FROM d),
+       TO_CHAR(d,'Month'),
+       1,                       -- Term 1
+       '2024-2025',
+       EXTRACT(WEEK FROM d),
+       CASE WHEN EXTRACT(DOW FROM d) IN (0,6) THEN TRUE ELSE FALSE END
+FROM generate_series('2024-09-01'::date, '2024-12-20'::date, interval '1 day') AS d
+WHERE EXTRACT(DOW FROM d) NOT IN (0,6); -- skip weekends
+NOTICE:  truncate cascades to table "fact_attendance"
+NOTICE:  truncate cascades to table "fact_grades"
+TRUNCATE TABLE
+INSERT 0 80
+school_analytics=> -- Term 2 (example: 2025-01-06 to 2025-04-10)
+INSERT INTO dim_date (full_date, day, month, month_name, term, academic_year, week_number, is_weekend)
+SELECT date_trunc('day', d)::date,
+       EXTRACT(DAY FROM d),
+       EXTRACT(MONTH FROM d),
+       TO_CHAR(d,'Month'),
+       2,                       -- Term 2
+       '2024-2025',
+       EXTRACT(WEEK FROM d),
+       CASE WHEN EXTRACT(DOW FROM d) IN (0,6) THEN TRUE ELSE FALSE END
+FROM generate_series('2025-01-06'::date, '2025-04-10'::date, interval '1 day') AS d
+WHERE EXTRACT(DOW FROM d) NOT IN (0,6); -- skip weekends
+INSERT 0 69
+school_analytics=> INSERT INTO fact_attendance (student_id, date_id, attendance_status, minutes_late)
+SELECT s.student_id,
+       d.date_id,
+       CASE
+           WHEN random() < 0.05 THEN 'Absent'
+           WHEN random() < 0.15 THEN 'Late'
+           ELSE 'Present'
+       END AS attendance_status,
+       CASE
+           WHEN random() < 0.15 THEN (random()*15)::int
+           ELSE 0
+       END AS minutes_late
+FROM dim_student s
+CROSS JOIN dim_date d;
+INSERT 0 2980
+school_analytics=> INSERT INTO fact_grades (student_id, subject_id, date_id, grade)
+SELECT s.student_id,
+       sub.subject_id,
+       d.date_id,
+       (50 + random()*50)::int AS grade   -- grades 50-100
+FROM dim_student s
+CROSS JOIN dim_subject sub
+CROSS JOIN dim_date d;
+ERROR:  column "grade" of relation "fact_grades" does not exist
+LINE 1: ...RT INTO fact_grades (student_id, subject_id, date_id, grade)
+                                                                 ^
+zsh: quit       psql -U ashleigh -d school_analytics
